@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% from "forms/bootstrap_wtf_macros.html" import render_bootstrap_field %}
+{% from "forms/bootstrap_wtf_macros.html" import render_bootstrap_button %}
+{% block title %}
+    Apple account processor. Update.
+{% endblock %}
+
+{% block info %}
+{{ super() }}
+<div class="col-xs-offset-1">
+    <strong> Update all devices and profiles: </strong>
+    <div id="progress-indicator">
+    </div>
+
+    <br/>
+    
+    <div class="col-xs-offset-1">
+        <form method="POST" action="." class="form-horizontal" role="form">
+            {{ render_bootstrap_button(update_all_form.submit) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+
+<script type="text/javascript" src="/static/jscripts/update_all.js">
+
+</script>
+
+{% endblock %}
+

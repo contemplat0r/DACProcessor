@@ -1,0 +1,11 @@
+ul.topmenu {
+    display: inline;
+    margin: .5em;
+    padding: .1em .25em;
+}
+
+li.topmenu {
+    display: inline;
+    margin: .5em;
+    padding: .1em .25em;
+}

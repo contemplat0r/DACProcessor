@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% from "forms/bootstrap_wtf_macros.html" import render_bootstrap_field %}
+{% from "forms/bootstrap_wtf_macros.html" import render_min_bootstrap_field_with_label %}
+{% from "forms/bootstrap_wtf_macros.html" import render_bootstrap_button %}
+{% from "forms/per_page_select_macros.html" import per_page_select %}
+
+{% block info %}
+{{ super() }}
+<div>
+    <div id="registerusermessage">
+    </div>
+    <form method="POST" action="." class="form-horizontal" role="form" id="registeruserform">
+        {{ register_form.csrf_token }}
+        {{ render_min_bootstrap_field_with_label(register_form.uid) }}
+        {{ render_min_bootstrap_field_with_label(register_form.given_name) }}
+        {{ render_min_bootstrap_field_with_label(register_form.surname) }}
+        {{ render_min_bootstrap_field_with_label(register_form.mail) }}
+        {{ render_min_bootstrap_field_with_label(register_form.role) }}
+        {{ render_min_bootstrap_field_with_label(register_form.password) }}
+        {{ render_min_bootstrap_field_with_label(register_form.confirm) }}
+        {{ render_bootstrap_button(register_form.submit) }}
+    </form>
+</div>
+
+<div>
+    <div id="ldapsyncmessage">
+    </div>
+    <form method="POST" action="." class="form-horizontal" role="form" id="ldapsyncform">
+        <input type="hidden" name="csrf_token" value="abc">
+        {{ render_bootstrap_button(ldap_sync_form.submit) }}
+    </form>
+</div>
+
+<div>
+    <div class="row">
+        <div class="col-xs-2 col-xs-offset-5">
+            {{ per_page_select("Users per page", "usersperpageform", "usersperpage") }}
+        </div>
+    </div>
+
+    <form method="POST" action="." class="form" id="userslistform">
+        <input type="hidden" name="csrf_token" value="abc">
+        <table>
+            <thead id="userslisthead">
+                <tr>
+                    <td></td>
+                    <td>UID:</td>
+                    <td>Name:</td>
+                    <td>Surname:</td>
+                    <td>Email:</td>
+                    <td>Auth type:</td>
+                    <td>Role:</td>
+                    <td>Check to delete:</td>
+                </tr>
+            </thead>
+            <tbody id="userslist">
+            </tbody>
+        </table>
+    </form>
+</div>
+{% endblock %}
+
+{% block pages_links %}
+{{ super() }}
+<div id="pagination" class="bottom">
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript" src="/static/jscripts/administration.js">
+</script>
+{% endblock %}
+

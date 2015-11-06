@@ -1,0 +1,99 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}
+{% endblock %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="/static/css/browserstyle.css">
+{% endblock %}
+
+{% block navbar %}
+<div class="topnavbar">
+    <ul class="topnavbar">
+        {% if g.user != None %}
+        <li class="topnavbar">
+            <a href="{{ url_for('users.home') }}"> Home </a>
+        </li>
+        {% endif %}
+        {% if g.user == None %}
+        <li class="topnavbar">
+            <a href="{{ url_for('users.login') }}"> Login </a>
+        </li>
+        {% endif %}
+        {% if g.user != None and g.role in ['Admin'] %}
+        <li class="topnavbar">
+            <a href="{{ url_for('users.administration') }}"> Users administration </a>
+        </li>
+        {% endif %}
+        {% if g.user != None %}
+        <li class="topnavbar">
+            <a href="{{ url_for('users.logout') }}"> Logout </a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="messages-wrap">
+    <div id="messages">
+    {% for category, msg in get_flashed_messages(with_categories=true) %}
+    <p class="message flash-{{ category }}">{{ msg }} </p>
+    {% endfor %}
+    </div>
+</div>
+
+<div class="row">
+    <div id="server_error_message" class="col-xs-offset-2">
+    </div>
+<div>
+
+<div class="row">
+    <div class="col-xs-1">
+        {% if g.user != None %}
+        <div class="well sidebar-nav">
+            <ul class="nav">
+                <li>DAC</li>
+                <li>
+                    <a href="{{ url_for('browser.devices') }}"> Devices </a>
+                </li>
+                {% if g.user != None and g.role in ['Member', 'Admin'] %}
+                <li>
+                    <a href="{{ url_for('browser.profiles') }}"> Profiles </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('browser.update') }}"> Update </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+    <div class="col-xs-11">
+        {% block info %}
+        {% endblock %}
+    </div>
+</div>
+    {% block footer %}
+    <div class="row">
+        <div class="col-xs-4">
+        </div>
+        <div class="col-xs-4">
+            {% block pages_links %}
+            {% endblock %}
+        </div>
+        <div class="col-xs-4">
+        </div>
+    </div>
+    {% endblock %}
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+
+<script type="text/javascript" src="/static/jscripts/background_ops.js">
+</script>
+
+{% endblock %}
+

@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% from "forms/per_page_select_macros.html" import per_page_select %}
+{% block title %}
+    Apple account processor. Profiles.
+{% endblock %}
+
+{% block info %}
+{{ super() }}
+
+<div class="row">
+    <div class="col-xs-2 col-xs-offset-2">
+        <h4> Profiles </h4>
+    </div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-xs-2 col-xs-offset-1">
+        {{ per_page_select("Profiles per page", "perpagevalues", "profilesperpage") }}
+    </div>
+</div>
+
+<table class="col-xs-offset-1">
+    <thead id="profilelisthead">
+        <tr>
+            <td>
+                <h5>#</h5>
+            </td>
+            <td>
+                <h5>Name</h5>
+            </td>
+            <td>
+                <h5>Profile devices total</h5>
+            </td>
+        </tr>
+    </thead>
+    <tbody id="profileslist">
+    </tbody>
+</table>
+{% endblock %}
+
+{% block pages_links %}
+{{ super() }}
+<div id="pagination" class="bottom">
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript" src="/static/jscripts/profiles.js">
+</script>
+{% endblock %}
+

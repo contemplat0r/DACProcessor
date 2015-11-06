@@ -1,0 +1,90 @@
+table {
+      border-spacing: 20px;
+}
+
+td {
+        padding: 15px;
+}
+
+.pagination-page-info {
+    padding: .6em;
+    padding-left: 0;
+    width: 40em;
+    margin: .5em;
+    margin-left: 0;
+    font-size: 12px;
+}
+.pagination-page-info b {
+    color: black;
+    background: #6aa6ed;
+    padding-left: 2px;
+    padding: .1em .25em;
+    font-size: 150%;
+}
+
+.pagination ul {
+    display: inline;
+    margin: .5em;
+    padding: .1em .25em;
+}
+
+.pagination li {
+    display: inline;
+    margin: .5em;
+    padding: .1em .25em;
+}
+
+div.container {
+    width:100%;
+    text-align:center;
+}
+
+div.left {
+    float:left;
+}
+
+div.center {
+    display: inline-block;
+    margin:0 auto;
+    width:100px;
+}
+
+div.right {
+    float:right;
+}
+
+ul.topnavbar {
+    display: inline;
+    margin: 2em;
+}
+
+li.topnavbar {
+    display: inline;
+    margin: 2em;
+}
+
+div.topnavbar {
+    margin:1em;
+    width:100%;
+    text-align:center;
+}
+
+div.bottom {
+    margin:1em;
+    width:100%;
+    text-align:center;
+}
+
+input.checkbox {
+    height:20px;
+}
+
+div.ufield {
+    background: #ccc;
+    border: solid 1px black;
+}
+
+div.addbutton {
+    background: #fca;
+    border: solid 1px blue;
+}

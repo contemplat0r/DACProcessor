@@ -1,0 +1,14 @@
+{% for profile in profiles_descriptions %}
+<tr>
+    <td>
+        {{ profile.number }}
+    </td>
+    <td>
+        <a href="/browser/profile/{{ profile.profile_id }}"> {{ profile.name }} </a>
+    </td>
+    <td>
+        {{ profile.total }}
+    </td>
+</tr>
+{% endfor %}
+

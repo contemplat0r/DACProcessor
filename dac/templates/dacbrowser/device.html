@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{% from "forms/bootstrap_wtf_macros.html" import render_bootstrap_field %}
+{% from "forms/bootstrap_wtf_macros.html" import render_bootstrap_button %}
+{% from "forms/per_page_select_macros.html" import per_page_select %}
+{% block title %}
+    Apple account processor. Device {{ device.name }} profiles.
+{% endblock %}
+
+{% block info %}
+{{ super() }}
+<div>
+    <div class="row">
+        <div class="col-xs-offset-1">
+            <div>
+                <h4 id="devicename"> Device name: {{device.name}} </h4>
+                <h4 id="deviceudid"> UDID: {{device.number}} </h4>
+                <form id="deviceidform">
+                    {{ device_id_form.device_id }}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="col-xs-offset-1">
+        <div class="row">
+            <div class="col-xs-2">
+                <form id="condition_of_selection">
+                    <select id="select_profiles" class="form-control input-sm">
+                        <option value="0"> Profiles containing this device</option>
+                        <option value="1"> Profiles not containing this device </option>
+                    </select>
+                </form>
+            </div>
+            <div class="col-xs-2 col-xs-offset-1">
+                {{ per_page_select("Profiles per page:", "perpagevalues", "profilesperpage") }}
+            </div>
+        </div>
+
+        <div id="profiles_edit_process_message">
+        </div>
+        <div id="update_profiles_list_message">
+        </div>
+
+        <form method="POST" action="." class="form" id="profileseditform">
+        <table>
+            <thead id="profilelisthead">
+                <tr>
+                    <td>
+                        <h5>#</h5>
+                    </td>
+                    <td>
+                        <h5>Profile Name</h5>
+                    </td>
+                    <td>
+                        <h5>Team</h5>
+                    </td>
+                    <td>
+                        <h5>Num of devices</h5>
+                    </td>
+                    <td>
+                        <h5>Select</h5>
+                    </td>
+                </tr>
+            </thead>
+            <tbody id="profileslist">
+            </tbody>
+        </table>
+        </form>
+    </div>
+</div>
+
+{% block pages_links %}
+{{ super() }}
+<div id="pagination" class="bottom">
+</div>
+{% endblock %}
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript" src="/static/jscripts/device.js">
+</script>
+{% endblock %}
+

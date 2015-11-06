@@ -1,0 +1,33 @@
+<tr>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+        {{ edit_profile_form.profile_id }}
+    </td>
+    <td>
+        <div class="form-group">
+            <input id="submit_edit_command" class="btn btn-primary btn-sm" name="submit_edit_command" type="submit" value="{{submit_edit_button_text}}">
+        </div>
+    </td>
+</tr>
+
+{% for device in edit_profile_form.devices %}
+<tr>
+    <td>
+        {{ device.number.data }}
+    </td>
+    <td>
+        <a href="/browser/device/{{ device.device_number.data }}">{{ device.device_name.data }}</a>
+    </td>
+    <td>
+        {{ device.device_number.data }}
+        {{ device.device_id }}
+    </td>
+    <td>
+        {{ device.select_to_edit }}
+    </td>
+</tr>
+{% endfor %}
+

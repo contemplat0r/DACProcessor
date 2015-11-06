@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+
+{% block info %}
+{{ super() }}
+    Hi {{ user.name }} !
+    Your role is {{ user.get_role() }}
+{% endblock %}

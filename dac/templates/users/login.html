@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% from "forms/bootstrap_wtf_macros.html" import render_bootstrap_field %}
+{% from "forms/bootstrap_wtf_macros.html" import render_bootstrap_button %}
+
+{% block info %}
+{{ super() }}
+<div class="col-sm-6">
+    <div id="authmessage">
+    </div>
+    <form method="POST" action="." class="form-horizontal" role="form" id="authform">
+        {{ form.csrf_token }}
+        {{ render_bootstrap_field(form.uid) }}
+        {{ render_bootstrap_field(form.password) }}
+        {{ render_bootstrap_button(form.submit) }}
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript" src="/static/jscripts/login.js">
+</script>
+{% endblock %}
+

@@ -1,0 +1,30 @@
+{% from "forms/bootstrap_wtf_macros.html" import render_bootstrap_button %}
+{% from "forms/bootstrap_wtf_macros.html" import render_bootstrap_field %}
+{% from "forms/bootstrap_wtf_macros.html" import render_min_bootstrap_field %}
+{% from "forms/bootstrap_wtf_macros.html" import render_xmin_bootstrap_field %}
+{% from "forms/bootstrap_wtf_macros.html" import render_xmin_bootstrap_checkbox %}
+
+{% for user_description in list_users_form.users %}
+<tr>
+    <td>{{user_description.identifier}}{{user_description.identifier.data}}</td>
+    <td>{{user_description.uid}}{{user_description.uid.data}}</td>
+    <td>{{user_description.given_name}}{{user_description.given_name.data}}</td>
+    <td>{{user_description.surname}}{{user_description.surname.data}}</td>
+    <td>{{user_description.mail}}{{user_description.mail.data}}</td>
+    <td>{{user_description.auth_type}}{{user_description.auth_type.data}}</td>
+    <td>{{ render_min_bootstrap_field(user_description.role) }}</td>
+    <td>{{ render_xmin_bootstrap_checkbox(user_description.delete) }}</td>
+</tr>
+{% endfor %}
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>{{ render_bootstrap_button(list_users_form.submit) }}</td>
+</tr>
+    
+

@@ -1,0 +1,29 @@
+1. (Move add_device and add_multiple_devices from dacbrowser class to appleaccountprocessor class.) - Done.
+
+2. (Remove devices_list_file.txt after upload in add_multiple_devices.) - Done.
+
+3. (Add to pagination_macros check if is only one page and do not render anything in this case.) - Done.
+
+4. Change text on upload button on devices page (Only by bitmap?).
+
+5. (Replace 'addevice' by 'startaddevice'.) - Done.
+
+6. Remove from code debug prints. Replace with logging if required.
+
+7. Process 404 http code in edit_profiles. - Done.
+
+8. Change Profile model primary key? - Does not make sense.
+
+9. Check logic in appleaccountprocessor and dacbrowser. Improve work with errors and execptions.
+
+10. Group controllers in controllers.py in section by correspond pages. Give name to every section.
+
+11. Unificate data returning by dacbrowser.get, dacbrowser.post and dacbrowser.submit_selected_form - ResponseDataWrapper in any case, even unsucces and none data? - Done.
+
+12. Delete etries in model tables by constructions like session.query(DeviceProfileAssociation).filter(DeviceProfileAssociation.profile_id.in_(old_profiles_ids)).delete(), that lets avoid cycles.
+
+13. Rewrite dacbrowser class by python requests.
+
+14. Write general check_progress javscript function.
+
+15. In "error: " function processor (in every $.ajax call) - display "Server connection error" by special tag in layout.html template. 

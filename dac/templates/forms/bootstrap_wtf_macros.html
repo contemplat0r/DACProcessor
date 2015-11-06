@@ -1,0 +1,92 @@
+{% macro render_bootstrap_field(field, readonly=False) %}
+<div class="form-group">
+    {% if field.errors %}
+        {{ field(**kwargs) }}
+        <ul class="errors"> {% for error in field.errors %}<li> {{error|e}} </li> {% endfor %} </ul>
+    {% else %}
+    <div>
+        {{ field(class='form-control')|safe }}
+    </div>
+    {% endif %}
+</div>
+{% endmacro %}
+
+{% macro render_min_bootstrap_field(field, readonly=False) %}
+<div class="form-group">
+    {% if field.errors %}
+        {{ field(**kwargs) }}
+        <ul class="errors"> {% for error in field.errors %}<li> {{error|e}} </li> {% endfor %} </ul>
+    {% else %}
+    <div>
+        {{ field(class='form-control input-sm')|safe }}
+    </div>
+    {% endif %}
+</div>
+{% endmacro %}
+
+{% macro render_xmin_bootstrap_field(field, readonly=False) %}
+<div class="form-group">
+    {% if field.errors %}
+        {{ field(**kwargs) }}
+        <ul class="errors"> {% for error in field.errors %}<li> {{error|e}} </li> {% endfor %} </ul>
+    {% else %}
+    <div>
+        {{ field(class='form-control input-xs')|safe }}
+    </div>
+    {% endif %}
+</div>
+{% endmacro %}
+
+{% macro render_xmin_bootstrap_checkbox(checkbox, readonly=False) %}
+<div class="form-group">
+    {% if checkbox.errors %}
+        {{ checkbox(**kwargs) }}
+        <ul class="errors"> {% for error in checkbox.errors %}<li> {{error|e}} </li> {% endfor %} </ul>
+    {% else %}
+    <div>
+        {{ checkbox(class='form-control input-xs checkbox')|safe }}
+    </div>
+    {% endif %}
+</div>
+{% endmacro %}
+
+{% macro render_bootstrap_field_with_label(field, readonly=False) %}
+<div class="form-group">
+    <div class="row">
+    <label class="control-label col-xs-1 text-left"> {{ field.label }} </label>
+    {% if field.errors %}
+        {{ field(**kwargs) }}
+        <ul class="errors"> {% for error in field.errors %}<li> {{error|e}} </li> {% endfor %} </ul>
+    {% else %}
+    <div class="col-xs-2">
+        {{ field(class='form-control input-sm')|safe }}
+    </div>
+    </div>
+    {% endif %}
+</div>
+{% endmacro %}
+
+{% macro render_min_bootstrap_field_with_label(field, readonly=False) %}
+<div class="form-group">
+    <div class="row">
+    <label class="control-label col-xs-1 text-left"> {{ field.label }} </label>
+    {% if field.errors %}
+        {{ field(**kwargs) }}
+        <ul class="errors"> {% for error in field.errors %}<li> {{error|e}} </li> {% endfor %} </ul>
+    {% else %}
+    <div class="col-xs-2">
+        {{ field(class='form-control input-sm')|safe }}
+    </div>
+    </div>
+    {% endif %}
+</div>
+{% endmacro %}
+
+
+{% macro render_bootstrap_button(button) %}
+<div class="form-group">
+    <div>
+    {{ button(class='btn btn-primary btn-sm') }}
+    </div>
+</div>
+{% endmacro %}
